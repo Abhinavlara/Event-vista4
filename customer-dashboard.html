@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Customer dashboard - Browse services, manage saved vendors, and plan your events with Event Vista.">
+    <title>Customer Dashboard | Event Vista</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF6B35'/></svg>">
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span class="logo-text">Event Vista</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Main Menu</span>
+                    <a href="customer-dashboard.html" class="nav-item active">
+                        <span class="nav-icon">🏠</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="services.html" class="nav-item">
+                        <span class="nav-icon">🔍</span>
+                        <span>Browse Services</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">❤️</span>
+                        <span>Saved Vendors</span>
+                        <span class="nav-badge">3</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">📅</span>
+                        <span>My Events</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Account</span>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">👤</span>
+                        <span>Profile</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Settings</span>
+                    </a>
+                    <a href="contact.html" class="nav-item">
+                        <span class="nav-icon">❓</span>
+                        <span>Help & Support</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="user-avatar">U</div>
+                    <div class="user-info">
+                        <h4 class="user-name">User</h4>
+                        <p class="user-role">Customer</p>
+                    </div>
+                    <button class="logout-btn" onclick="logout()" title="Logout">🚪</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Mobile Sidebar Toggle -->
+        <button class="sidebar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="sidebar-overlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h1>Welcome back, <span class="welcome-name">there</span>! 👋</h1>
+                    <p>Ready to plan your next memorable event?</p>
+                </div>
+                <div class="dashboard-actions">
+                    <a href="services.html" class="btn btn-primary">Browse Services</a>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-label">Saved Vendors</span>
+                        <div class="stat-icon">❤️</div>
+                    </div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-change positive">
+                        <span>↑ 2 this week</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-label">Inquiries Sent</span>
+                        <div class="stat-icon">💬</div>
+                    </div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-change positive">
+                        <span>↑ 3 this month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-label">Events Planned</span>
+                        <div class="stat-icon">🎉</div>
+                    </div>
+                    <div class="stat-value">1</div>
+                    <div class="stat-change">
+                        <span>Upcoming on March 15</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-label">Account Type</span>
+                        <div class="stat-icon">⭐</div>
+                    </div>
+                    <div class="stat-value" style="font-size: 1.5rem;">Free</div>
+                    <div class="stat-change">
+                        <a href="business-model.html" style="color: var(--primary);">Upgrade to Premium →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Browse Services -->
+                <div class="dashboard-card half-width">
+                    <div class="card-header">
+                        <h3>Browse Services</h3>
+                        <a href="services.html" class="view-all">View All →</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="services-list">
+                            <div class="mini-service-card">
+                                <div class="service-icon">🏛️</div>
+                                <h4>Venues</h4>
+                                <p>500+ venues available</p>
+                                <a href="services.html" class="explore-btn">Explore →</a>
+                            </div>
+                            <div class="mini-service-card">
+                                <div class="service-icon">📋</div>
+                                <h4>Planners</h4>
+                                <p>200+ event planners</p>
+                                <a href="services.html" class="explore-btn">Explore →</a>
+                            </div>
+                            <div class="mini-service-card">
+                                <div class="service-icon">🍽️</div>
+                                <h4>Catering</h4>
+                                <p>150+ caterers</p>
+                                <a href="services.html" class="explore-btn">Explore →</a>
+                            </div>
+                            <div class="mini-service-card">
+                                <div class="service-icon">🌸</div>
+                                <h4>Decoration</h4>
+                                <p>100+ decorators</p>
+                                <a href="services.html" class="explore-btn">Explore →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saved Vendors -->
+                <div class="dashboard-card half-width">
+                    <div class="card-header">
+                        <h3>Saved Vendors</h3>
+                        <a href="#" class="view-all">View All →</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="saved-list" id="savedVendorsList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dashboard-card full-width">
+                    <div class="card-header">
+                        <h3>Recent Activity</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Activity</th>
+                                        <th>Vendor</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Inquiry Sent</td>
+                                        <td>Royal Events - Event Planner</td>
+                                        <td>Jan 10, 2024</td>
+                                        <td><span class="status pending">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Saved to Favorites</td>
+                                        <td>Dream Decorators</td>
+                                        <td>Jan 9, 2024</td>
+                                        <td><span class="status confirmed">Saved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Viewed Profile</td>
+                                        <td>Grand Venue Hall</td>
+                                        <td>Jan 8, 2024</td>
+                                        <td><span class="status completed">Viewed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Inquiry Sent</td>
+                                        <td>Delicious Catering Co.</td>
+                                        <td>Jan 7, 2024</td>
+                                        <td><span class="status confirmed">Replied</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

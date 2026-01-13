@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Vendor dashboard - Manage your business, add packages, view leads, and grow with Event Vista.">
+    <title>Vendor Dashboard | Event Vista</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF6B35'/></svg>">
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span class="logo-text">Event Vista</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Main Menu</span>
+                    <a href="vendor-dashboard.html" class="nav-item active">
+                        <span class="nav-icon">🏠</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#leads" class="nav-item">
+                        <span class="nav-icon">📥</span>
+                        <span>Leads</span>
+                        <span class="nav-badge">3</span>
+                    </a>
+                    <a href="#packages" class="nav-item">
+                        <span class="nav-icon">📦</span>
+                        <span>My Packages</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">📊</span>
+                        <span>Analytics</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Business</span>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">🏢</span>
+                        <span>Business Profile</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">🖼️</span>
+                        <span>Portfolio</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">⭐</span>
+                        <span>Reviews</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Account</span>
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Settings</span>
+                    </a>
+                    <a href="business-model.html" class="nav-item">
+                        <span class="nav-icon">💎</span>
+                        <span>Upgrade Plan</span>
+                    </a>
+                    <a href="contact.html" class="nav-item">
+                        <span class="nav-icon">❓</span>
+                        <span>Help</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="user-avatar">V</div>
+                    <div class="user-info">
+                        <h4 class="user-name">Vendor</h4>
+                        <p class="user-role">Vendor</p>
+                    </div>
+                    <button class="logout-btn" onclick="logout()" title="Logout">🚪</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Mobile Sidebar Toggle -->
+        <button class="sidebar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="sidebar-overlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h1>Vendor Dashboard 📊</h1>
+                    <p>Manage your business and grow with Event Vista</p>
+                </div>
+                <div class="dashboard-actions">
+                    <a href="#add-package" class="btn btn-secondary">+ Add Package</a>
+                    <a href="#" class="btn btn-primary">View Profile</a>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-label">Total Leads</span>
+                        <div class="stat-icon">📥</div>
+                    </div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-change positive">
+                        <span>↑ 3 new this week</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-label">Profile Views</span>
+                        <div class="stat-icon">👁️</div>
+                    </div>
+                    <div class="stat-value">156</div>
+                    <div class="stat-change positive">
+                        <span>↑ 23% from last week</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-label">Active Packages</span>
+                        <div class="stat-icon">📦</div>
+                    </div>
+                    <div class="stat-value">4</div>
+                    <div class="stat-change">
+                        <span>2 pending approval</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-label">Rating</span>
+                        <div class="stat-icon">⭐</div>
+                    </div>
+                    <div class="stat-value">4.8</div>
+                    <div class="stat-change positive">
+                        <span>From 24 reviews</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- New Leads -->
+                <div class="dashboard-card half-width" id="leads">
+                    <div class="card-header">
+                        <h3>New Leads 📥</h3>
+                        <a href="#" class="view-all">View All →</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="leads-list" id="leadsList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Package Form -->
+                <div class="dashboard-card half-width" id="add-package">
+                    <div class="card-header">
+                        <h3>Add New Package 📦</h3>
+                    </div>
+                    <div class="card-body">
+                        <form class="package-form" id="packageForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="packageName">Package Name *</label>
+                                    <input type="text" id="packageName" placeholder="e.g., Premium Wedding Package"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="packageCategory">Category *</label>
+                                    <select id="packageCategory" required>
+                                        <option value="">Select category</option>
+                                        <option value="Venue">Venue</option>
+                                        <option value="Event Planning">Event Planning</option>
+                                        <option value="Catering">Catering</option>
+                                        <option value="Decoration">Decoration</option>
+                                        <option value="Stage & Lighting">Stage & Lighting</option>
+                                        <option value="Photography">Photography</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="packagePrice">Price (₹) *</label>
+                                    <input type="number" id="packagePrice" placeholder="e.g., 50000" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="packageFeatures">Key Features</label>
+                                    <input type="text" id="packageFeatures"
+                                        placeholder="e.g., 200 guests, Full setup, Catering included">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="packageDescription">Description</label>
+                                <textarea id="packageDescription"
+                                    placeholder="Describe what's included in this package..."></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary"
+                                    onclick="this.form.reset()">Clear</button>
+                                <button type="submit" class="btn btn-primary">Add Package</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- My Packages Table -->
+                <div class="dashboard-card full-width" id="packages">
+                    <div class="card-header">
+                        <h3>My Packages</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Package Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="packagesList">
+                                    <!-- Populated by JS or show sample data -->
+                                    <tr>
+                                        <td>Premium Wedding Package</td>
+                                        <td>Event Planning</td>
+                                        <td>₹75,000</td>
+                                        <td><span class="status confirmed">Active</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="action-btn view" title="View">👁️</button>
+                                                <button class="action-btn edit" title="Edit">✏️</button>
+                                                <button class="action-btn delete" title="Delete">🗑️</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Corporate Event Setup</td>
+                                        <td>Corporate</td>
+                                        <td>₹1,25,000</td>
+                                        <td><span class="status confirmed">Active</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="action-btn view" title="View">👁️</button>
+                                                <button class="action-btn edit" title="Edit">✏️</button>
+                                                <button class="action-btn delete" title="Delete">🗑️</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Birthday Bash Special</td>
+                                        <td>Birthday</td>
+                                        <td>₹25,000</td>
+                                        <td><span class="status pending">Pending</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="action-btn view" title="View">👁️</button>
+                                                <button class="action-btn edit" title="Edit">✏️</button>
+                                                <button class="action-btn delete" title="Delete">🗑️</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Engagement Ceremony</td>
+                                        <td>Engagement</td>
+                                        <td>₹40,000</td>
+                                        <td><span class="status confirmed">Active</span></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <button class="action-btn view" title="View">👁️</button>
+                                                <button class="action-btn edit" title="Edit">✏️</button>
+                                                <button class="action-btn delete" title="Delete">🗑️</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Tips -->
+                <div class="dashboard-card third-width">
+                    <div class="card-header">
+                        <h3>Quick Tips 💡</h3>
+                    </div>
+                    <div class="card-body">
+                        <div style="padding: 15px; background: var(--cream); border-radius: 10px; margin-bottom: 15px;">
+                            <strong>Complete Your Profile</strong>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">Vendors with
+                                complete profiles get 3x more leads!</p>
+                        </div>
+                        <div style="padding: 15px; background: var(--cream); border-radius: 10px; margin-bottom: 15px;">
+                            <strong>Add Quality Photos</strong>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">Upload at least 10
+                                high-quality photos of your work.</p>
+                        </div>
+                        <div style="padding: 15px; background: var(--cream); border-radius: 10px;">
+                            <strong>Respond Quickly</strong>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">Fast responses
+                                improve your rating and conversion.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Status -->
+                <div class="dashboard-card third-width">
+                    <div class="card-header">
+                        <h3>Account Status</h3>
+                    </div>
+                    <div class="card-body">
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 3rem; margin-bottom: 15px;">🌟</div>
+                            <h4 style="margin-bottom: 10px;">Starter Plan</h4>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 20px;">Upgrade to get
+                                more features and visibility</p>
+                            <a href="business-model.html" class="btn btn-primary" style="width: 100%;">Upgrade Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance -->
+                <div class="dashboard-card third-width">
+                    <div class="card-header">
+                        <h3>This Month</h3>
+                    </div>
+                    <div class="card-body">
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-light);">Profile Views</span>
+                                <strong style="color: var(--primary);">+156</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-light);">New Leads</span>
+                                <strong style="color: var(--primary);">+12</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-light);">Inquiries</span>
+                                <strong style="color: var(--primary);">+8</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text-light);">Conversion Rate</span>
+                                <strong style="color: var(--primary);">24%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
